@@ -7,11 +7,12 @@ Nautilus extension with simple Metadata Editor. Editor avalible for files with t
 
 ### Building and Installation
 
-    git clone https://github.com/nvlgit/nautilus-metadata-editor-extension.git && cd nautilus-metadata-editor-extension
-    meson builddir --prefix=/usr && cd builddir
-    ninja
-    su -c 'ninja install'
-
+```bash
+git clone https://github.com/nvlgit/nautilus-metadata-editor-extension.git && cd nautilus-metadata-editor-extension
+meson builddir --prefix=/usr && cd builddir
+ninja
+su -c 'ninja install'
+```
 For rpmbuild: <a href="https://github.com/nvlgit/fedora-specs/blob/master/nautilus-metadata-editor-extension.spec">nautilus-metadata-editor-extension.spec</a> 
 
 ### Build Dependencies
