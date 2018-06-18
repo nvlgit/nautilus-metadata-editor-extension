@@ -1,0 +1,4 @@
+data/org.gnome.Nautilus-Metadata-Editor-Extension.desktop.in
+data/org.gnome.Nautilus-Metadata-Editor-Extension.appdata.xml.in
+src/window/ui/window.ui
+src/nautilus/nautilus-metadata-editor-extension.c
