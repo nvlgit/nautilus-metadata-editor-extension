@@ -1,5 +1,5 @@
 # nautilus-metadata-editor-extension
-Nautilus extension with simple Metadata Editor. Editor avalible for file with following meme types: audio/x-mp3, audio/x-flac, audio/x-vorbis+ogg, audio/x-speex+ogg, audio/x-musepack, audio/x-wavpack, audio/x-tta, audio/x-aiff, audio/m4a, video/mp4, video/x-ms-asf
+Nautilus extension with simple Metadata Editor. Editor avalible for files with following mime types: audio/x-mp3, audio/x-flac, audio/x-vorbis+ogg, audio/x-speex+ogg, audio/x-musepack, audio/x-wavpack, audio/x-tta, audio/x-aiff, audio/m4a, video/mp4, video/x-ms-asf
 
 ![Alt text](https://user-images.githubusercontent.com/29505119/41529838-11a7645c-72f7-11e8-93b9-618e43b3f94f.png)
 
