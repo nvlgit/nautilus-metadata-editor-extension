@@ -5,6 +5,14 @@ project('nautilus-metadata-editor-extension', ['c', 'vala'],
 
 i18n = import('i18n')
 
+doc_subdir = join_paths(get_option('datadir'), 'doc', meson.project_name())
+install_data('README.md',
+    install_dir: doc_subdir)
+
+licenses_subdir = join_paths(get_option('datadir'), 'licenses', meson.project_name())
+install_data('LICENSE',
+    install_dir: licenses_subdir)
+
 
 subdir('data')
 subdir('src')
