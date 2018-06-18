@@ -6,7 +6,7 @@ Nautilus extension with simple Metadata Editor. Editor avalible for files with t
 ![Alt text](https://user-images.githubusercontent.com/29505119/41529848-1ac31496-72f7-11e8-8561-0e23cc5d33a6.png)
 
 ### Build Dependencies
-* glib-2.0 & gmodule-2.0 >=2.50
+* glib-2.0 >=2.50
 * gmodule-2.0 >=2.50
 * gtk+-3.0 >= 3.22
 * taglib_c >= 1.11
