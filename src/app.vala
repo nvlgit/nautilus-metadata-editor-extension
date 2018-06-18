@@ -16,7 +16,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 namespace MetadataEditor {
+
+    public enum FailureType {
+        READ,
+        WRITE
+    }
 
     const string APP_ID = "com.gitlab.nvlgit.metadata-editor";
 
@@ -33,21 +39,28 @@ namespace MetadataEditor {
         protected override void activate () {
 
                 base.activate ();
-                win = (Window) this.active_window;
-                if (win == null)
-                    win = new Window (this);
-    		    win.present ();
         }
 
         public override void open (GLib.File[] files,
                                    string      hint) {
 
-                win = (Window) this.active_window;
-                if (win == null)
-                    win = new Window (this);
+                win = new Window (this);
+                win.failure.connect (notify_desktop);
                 win.open (files[0]);
     		    win.present ();
 
+        }
+
+        private void notify_desktop (string basename, FailureType type) {
+
+            var n = new GLib.Notification ("Metadata Editor");
+
+            if (type == FailureType.READ)
+                n.set_body ( basename + " open or read failure");
+            else
+                n.set_body ( basename + " save failure");
+
+            send_notification (null, n);
         }
     }
 }
