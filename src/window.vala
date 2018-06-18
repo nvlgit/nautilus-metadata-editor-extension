@@ -81,7 +81,7 @@ namespace MetadataEditor {
 		    comment_entry.text = tag_lib_file.tag.comment;
 		    year_entry.set_value ( (double) tag_lib_file.tag.year);
 		    track_entry.set_value ( (double) tag_lib_file.tag.track);
-		    header.subtitle = file.get_path ();;
+		    header.subtitle = file.get_path ();
 		}
 
 		private void apply_changes () {
