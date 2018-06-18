@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Metadata-editor
+NoDisplay=true
+Icon=org.gnome.Nautilus
+Exec=com.gitlab.nvlgit.metadata-editor
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;Utility;
+StartupNotify=true
