@@ -1,4 +1,7 @@
 # nautilus-metadata-editor-extension
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
+
 Nautilus extension with simple Metadata Editor. Editor avalible for files with the following mime types: audio/x-mp3, audio/x-flac, audio/x-vorbis+ogg, audio/x-speex+ogg, audio/x-musepack, audio/x-wavpack, audio/x-tta, audio/x-aiff, audio/m4a, video/mp4, video/x-ms-asf
 
 ![Alt text](https://user-images.githubusercontent.com/29505119/41529838-11a7645c-72f7-11e8-93b9-618e43b3f94f.png)
