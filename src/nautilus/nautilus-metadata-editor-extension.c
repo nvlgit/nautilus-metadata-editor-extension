@@ -152,7 +152,7 @@ printf ("  editor_is_present == FALSE\n");
 	if ( is_one_media_file (files) ) {
 
 		item = nautilus_menu_item_new ("MetadataEditor",
-			                       "Medadata Editor...",
+			                       "Metadata Editor...",
 			                       "Edit metadata in the media file",
 			                       "accessories-text-editor");
 
