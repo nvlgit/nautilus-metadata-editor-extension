@@ -5,6 +5,9 @@ Nautilus extension with simple Metadata Editor. Editor avalible for files with t
 
 ![Alt text](https://user-images.githubusercontent.com/29505119/41529848-1ac31496-72f7-11e8-8561-0e23cc5d33a6.png)
 
+### Building and Installation
+For rpmbuild: <a href="https://github.com/nvlgit/fedora-specs/blob/master/nautilus-metadata-editor-extension.spec">nautilus-metadata-editor-extension.spec</a> 
+
 ### Build Dependencies
 * glib-2.0 >=2.50
 * gmodule-2.0 >=2.50
