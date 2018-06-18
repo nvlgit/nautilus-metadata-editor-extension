@@ -37,56 +37,65 @@ namespace MetadataEditor {
 		[GtkChild] Gtk.Button btn_cancel;
 		[GtkChild] Gtk.Button btn_save;
 		[GtkChild] Gtk.HeaderBar header;
-    private string filepath;
-    private TagLib.File taglib;
+		private GLib.File file;
+		private TagLib.File tag_lib_file;
+		public signal void failure (string basename, FailureType type);
 
-    construct {
+		construct {
 
-        title_row.set_focus_child (title_entry);
-        artist_row.set_focus_child (artist_entry);
-        album_row.set_focus_child (album_entry);
-        genre_row.set_focus_child (genre_entry);
-        year_row.set_focus_child (year_entry);
-        track_row.set_focus_child (track_entry);
-        comment_row.set_focus_child (comment_entry);
+		    title_row.set_focus_child (title_entry);
+		    artist_row.set_focus_child (artist_entry);
+		    album_row.set_focus_child (album_entry);
+		    genre_row.set_focus_child (genre_entry);
+		    year_row.set_focus_child (year_entry);
+		    track_row.set_focus_child (track_entry);
+		    comment_row.set_focus_child (comment_entry);
 
-        btn_save.clicked.connect (apply_changes);
-        btn_cancel.clicked.connect ( () => { close (); });
-    }
+		    btn_save.clicked.connect (apply_changes);
+		    btn_cancel.clicked.connect ( () => { close (); });
+		}
 
 		public Window (Gtk.Application app) {
 			Object (application: app);
 		}
 
-		public void open (GLib.File file) {
+		public void open (GLib.File f) {
 
-		    filepath = file.get_path () ;
-		    taglib =  new TagLib.File (filepath);
-        populate_ui ();
+		    file = f;
+		    tag_lib_file =  new TagLib.File (file.get_path () );
+
+		    if  (tag_lib_file.is_valid () ) {
+		        populate_ui ();
+		    } else {
+		        failure (file.get_basename (), FailureType.READ); // emit signal
+			close ();
+		    }
 		}
 
 		private void populate_ui () {
 
-		    title_entry.text = taglib.tag.title;
-		    artist_entry.text = taglib.tag.artist;
-		    album_entry.text = taglib.tag.album;
-		    genre_entry.text = taglib.tag.genre;
-		    comment_entry.text = taglib.tag.comment;
-		    year_entry.set_value ( (double) taglib.tag.year);
-		    track_entry.set_value ( (double) taglib.tag.track);
-		    header.subtitle = filepath;
+		    title_entry.text = tag_lib_file.tag.title;
+		    artist_entry.text = tag_lib_file.tag.artist;
+		    album_entry.text = tag_lib_file.tag.album;
+		    genre_entry.text = tag_lib_file.tag.genre;
+		    comment_entry.text = tag_lib_file.tag.comment;
+		    year_entry.set_value ( (double) tag_lib_file.tag.year);
+		    track_entry.set_value ( (double) tag_lib_file.tag.track);
+		    header.subtitle = file.get_path ();;
 		}
 
 		private void apply_changes () {
 
-		    taglib.tag.title = title_entry.text;
-		    taglib.tag.artist = artist_entry.text;
-		    taglib.tag.album = album_entry.text;
-		    taglib.tag.genre = genre_entry.text;
-		    taglib.tag.comment = comment_entry.text;
-		    taglib.tag.year = ( (uint) year_entry.value);
-		    taglib.tag.track = ( (uint) track_entry.value);
-		    bool saved = taglib.save ();
+		    tag_lib_file.tag.title = title_entry.text;
+		    tag_lib_file.tag.artist = artist_entry.text;
+		    tag_lib_file.tag.album = album_entry.text;
+		    tag_lib_file.tag.genre = genre_entry.text;
+		    tag_lib_file.tag.comment = comment_entry.text;
+		    tag_lib_file.tag.year = ( (uint) year_entry.value);
+		    tag_lib_file.tag.track = ( (uint) track_entry.value);
+		    bool saved = tag_lib_file.save ();
+		    if (!saved)
+		        failure (file.get_basename (), FailureType.WRITE); // emit signal
 		    close ();
 		}
 	}
