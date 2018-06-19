@@ -1,4 +1,11 @@
-data/org.gnome.Nautilus-Metadata-Editor-Extension.desktop.in
-data/org.gnome.Nautilus-Metadata-Editor-Extension.appdata.xml.in
-src/window/ui/window.ui
+# List of source files containing translatable strings.
+
+# Desktop Entry
+data/com.gitlab.nvlgit.metadata-editor.desktop.in
+
+# Metadata Editor
+src/app.vala
+src/ui/window.ui
+
+# Extension Module
 src/nautilus/nautilus-metadata-editor-extension.c

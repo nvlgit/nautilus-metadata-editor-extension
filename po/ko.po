@@ -1,0 +1,239 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2012,2015
+msgid ""
+msgstr ""
+"Project-Id-Version: Thunar Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-19 16:41+0300\n"
+"PO-Revision-Date: 2017-11-14 12:04+0000\n"
+"Last-Translator: 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>\n"
+"Language-Team: Korean (http://www.transifex.com/xfce/thunar-plugins/language/"
+"ko/)\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: data/com.gitlab.nvlgit.metadata-editor.desktop.in:3 src/app.vala:56
+#: src/ui/window.ui:521
+msgid "Metadata Editor"
+msgstr ""
+
+#: data/com.gitlab.nvlgit.metadata-editor.desktop.in:5
+msgid "org.gnome.Nautilus"
+msgstr ""
+
+#: src/app.vala:59
+#, c-format
+msgid "Failed to read a metadata from the “%s”"
+msgstr ""
+
+#: src/app.vala:61
+#, c-format
+msgid "Failed to save the metadata to the “%s”"
+msgstr ""
+
+#: src/ui/window.ui:103
+#, fuzzy
+msgid "Title:"
+msgstr "제목:"
+
+#: src/ui/window.ui:149
+#, fuzzy
+msgid "Artist:"
+msgstr "작곡가:"
+
+#: src/ui/window.ui:197
+#, fuzzy
+msgid "Album:"
+msgstr "앨범:"
+
+#: src/ui/window.ui:243
+#, fuzzy
+msgid "Genre:"
+msgstr "장르:"
+
+#: src/ui/window.ui:289
+#, fuzzy
+msgid "Year:"
+msgstr "연도:"
+
+#: src/ui/window.ui:369
+#, fuzzy
+msgid "Track:"
+msgstr "트랙:"
+
+#: src/ui/window.ui:441
+#, fuzzy
+msgid "Comment:"
+msgstr "설명:"
+
+#: src/nautilus/nautilus-metadata-editor-extension.c:157
+msgid "Metadata Editor…"
+msgstr ""
+
+#: src/nautilus/nautilus-metadata-editor-extension.c:158
+msgid "Edit metadata in the media file…"
+msgstr ""
+
+#~ msgid "Artist - Title"
+#~ msgstr "작곡가 - 제목"
+
+#~ msgid "Track - Title"
+#~ msgstr "트랙 - 제목"
+
+#~ msgid "Track - Artist - Title"
+#~ msgstr "트랙 - 작곡가 - 제목"
+
+#~ msgid "Track. Title"
+#~ msgstr "트랙. 제목"
+
+#~ msgid "Track. Artist - Title"
+#~ msgstr "트랙. 작곡가 - 제목"
+
+#~ msgid "Artist - Track - Title"
+#~ msgstr "작곡가 - 트랙 - 제목"
+
+#~ msgid "Custom"
+#~ msgstr "사용자 정의"
+
+#~ msgid "Cust_om format:"
+#~ msgstr "사용자 정의 형식(_O):"
+
+#~ msgid "_Format:"
+#~ msgstr "형식(_F):"
+
+#~ msgid "_Underscores"
+#~ msgstr "밑줄(_U)"
+
+#~ msgid ""
+#~ "Activating this option will replace all spaces in the target filename "
+#~ "with underscores."
+#~ msgstr "이 옵션을 활성화하면 대상 파일 이름의 공백문자를 밑줄로 바꿉니다."
+
+#~ msgid "_Lowercase"
+#~ msgstr "소문자(_L)"
+
+#~ msgid ""
+#~ "If you activate this, the resulting filename will only contain lowercase "
+#~ "letters."
+#~ msgstr "이것을 활성화하면, 파일 이름에 소문자만 포함하게 됩니다."
+
+#~ msgid "Unknown Artist"
+#~ msgstr "알 수 없는 음악가"
+
+#~ msgid "Unknown Title"
+#~ msgstr "알 수 없는 제목"
+
+#~ msgid "Edit _Tags"
+#~ msgstr "태그 편집(_T)"
+
+#~ msgid "Edit ID3/OGG tags of this file."
+#~ msgstr "이 파일의 ID3/OGG 태그를 편집합니다."
+
+#~ msgid "Tag Help"
+#~ msgstr "태그 도움말"
+
+#~ msgid "Track number"
+#~ msgstr "트랙번호"
+
+#~ msgid "Audio Tags"
+#~ msgstr "음악 태그"
+
+#~ msgid "Unknown Album"
+#~ msgstr "알 수 없는 앨범"
+
+#~ msgid "Enter the track number here."
+#~ msgstr "여기에 트랙번호를 입력합니다."
+
+#~ msgid "<b>Year:</b>"
+#~ msgstr "<b>연도:</b>"
+
+#~ msgid "Enter the release year here."
+#~ msgstr "여기에 연도를 입력합니다."
+
+#~ msgid "<b>Artist:</b>"
+#~ msgstr "<b>작곡가:</b>"
+
+#~ msgid "Enter the name of the artist or author of this file here."
+#~ msgstr "여기에 이 파일의 작곡가나 저작자의 이름을 입력합니다."
+
+#~ msgid "<b>Title:</b>"
+#~ msgstr "<b>제목:</b>"
+
+#~ msgid "Enter the song title here."
+#~ msgstr "여기에 노래 제목을 입력합니다."
+
+#~ msgid "<b>Album:</b>"
+#~ msgstr "<b>앨범:</b>"
+
+#~ msgid "Enter the album/record title here."
+#~ msgstr "여기에 앨범/레코드 제목을 입력합니다."
+
+#~ msgid "<b>Comment:</b>"
+#~ msgstr "<b>설명:</b>"
+
+#~ msgid "Enter your comments here."
+#~ msgstr "여기에 설명을 입력합니다."
+
+#~ msgid "<b>Genre:</b>"
+#~ msgstr "<b>장르:</b>"
+
+#~ msgid "Select or enter the genre of this song here."
+#~ msgstr "여기에 이 노래의 장르를 입력합니다."
+
+#~ msgid "_Save"
+#~ msgstr "저장(_S)"
+
+#~ msgid "Save audio tags."
+#~ msgstr "음악 태그를 저장합니다."
+
+#~ msgid "_Information"
+#~ msgstr "정보(_I)"
+
+#~ msgid "Display more detailed information about this audio file."
+#~ msgstr "이 음악 파일에 대한 자세한 정보를 보여줍니다."
+
+#~ msgid "Audio"
+#~ msgstr "음악"
+
+#~ msgid "Edit Tags"
+#~ msgstr "태그 편집"
+
+#~ msgid "Audio Information"
+#~ msgstr "음악 정보"
+
+#~ msgid "%d:%02d Minutes"
+#~ msgstr "%d:%02d 분"
+
+#~ msgid "%d KBit/s"
+#~ msgstr "%d KBit/s"
+
+#~ msgid "%d Hz"
+#~ msgstr "%d Hz"
+
+#~ msgid "<b>Filename:</b>"
+#~ msgstr "<b>파일 이름:</b>"
+
+#~ msgid "<b>Filesize:</b>"
+#~ msgstr "<b>파일 크기:</b>"
+
+#~ msgid "<b>MIME Type:</b>"
+#~ msgstr "<b>MIME 형식:</b>"
+
+#~ msgid "<b>Bitrate:</b>"
+#~ msgstr "<b>비트 전송율:</b>"
+
+#~ msgid "<b>Samplerate:</b>"
+#~ msgstr "<b>샘플 주파수:</b>"
+
+#~ msgid "<b>Channels:</b>"
+#~ msgstr "<b>채널:</b>"
+
+#~ msgid "<b>Length:</b>"
+#~ msgstr "<b>길이:</b>"

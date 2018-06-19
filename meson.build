@@ -3,6 +3,7 @@ project('nautilus-metadata-editor-extension', ['c', 'vala'],
   meson_version: '>= 0.40.0',
 )
 
+gnome = import('gnome')
 i18n = import('i18n')
 
 doc_subdir = join_paths(get_option('datadir'), 'doc', meson.project_name())

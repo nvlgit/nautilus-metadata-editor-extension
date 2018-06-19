@@ -16,13 +16,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
+#include "config.h"
+#include <glib/gi18n-lib.h>
 #include <nautilus-extension.h>
 #include "nautilus-metadata-editor-extension.h"
 
 void nautilus_module_initialize (GTypeModule *module) {
 
       metadata_editor_load (module);
+
+      /* Set up gettext translations */
+      bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+      bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+      textdomain (GETTEXT_PACKAGE);
+
 
 }
 

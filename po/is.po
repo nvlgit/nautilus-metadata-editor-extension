@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Sveinn í Felli <sv1@fellsnet.is>, 2014
+# Sveinn í Felli <sveinki@nett.is>, 2013,2015
+msgid ""
+msgstr ""
+"Project-Id-Version: Thunar Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-19 16:41+0300\n"
+"PO-Revision-Date: 2017-09-19 18:03+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic (http://www.transifex.com/xfce/thunar-plugins/"
+"language/is/)\n"
+"Language: is\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);\n"
+
+#: data/com.gitlab.nvlgit.metadata-editor.desktop.in:3 src/app.vala:56
+#: src/ui/window.ui:521
+msgid "Metadata Editor"
+msgstr ""
+
+#: data/com.gitlab.nvlgit.metadata-editor.desktop.in:5
+msgid "org.gnome.Nautilus"
+msgstr ""
+
+#: src/app.vala:59
+#, c-format
+msgid "Failed to read a metadata from the “%s”"
+msgstr ""
+
+#: src/app.vala:61
+#, c-format
+msgid "Failed to save the metadata to the “%s”"
+msgstr ""
+
+#: src/ui/window.ui:103
+#, fuzzy
+msgid "Title:"
+msgstr "Titill:"
+
+#: src/ui/window.ui:149
+#, fuzzy
+msgid "Artist:"
+msgstr "Flytjandi:"
+
+#: src/ui/window.ui:197
+#, fuzzy
+msgid "Album:"
+msgstr "Albúm:"
+
+#: src/ui/window.ui:243
+#, fuzzy
+msgid "Genre:"
+msgstr "Tegund:"
+
+#: src/ui/window.ui:289
+#, fuzzy
+msgid "Year:"
+msgstr "Ár:"
+
+#: src/ui/window.ui:369
+#, fuzzy
+msgid "Track:"
+msgstr "Spor:"
+
+#: src/ui/window.ui:441
+#, fuzzy
+msgid "Comment:"
+msgstr "Athugasemd:"
+
+#: src/nautilus/nautilus-metadata-editor-extension.c:157
+msgid "Metadata Editor…"
+msgstr ""
+
+#: src/nautilus/nautilus-metadata-editor-extension.c:158
+msgid "Edit metadata in the media file…"
+msgstr ""

@@ -10,7 +10,12 @@ editor_deps = [
   dependency('taglib_c',  version: '>= 1.11'),
 ]
 
-gnome = import('gnome')
+
+c_args = [
+  '-DVERSION="' + meson.project_version() + '"',
+  '-DGETTEXT_PACKAGE="nautilus-metadata-editor-extension"',
+  '-DGNOMELOCALEDIR="' + get_option('prefix') + '/' + get_option('localedir') + '"'
+]
 
 add_project_arguments(['--gresourcesdir', join_paths(meson.current_source_dir(), 'ui')],
                       language: 'vala')
@@ -24,6 +29,7 @@ editor_sources += gnome.compile_resources('nautilus-metadata-editor-resources',
 
 executable('com.gitlab.nvlgit.metadata-editor', editor_sources,
   vala_args: '--target-glib=2.50',
+  c_args: c_args,
   dependencies: editor_deps,
   install: true,
 )

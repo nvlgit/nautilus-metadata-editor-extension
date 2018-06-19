@@ -1,0 +1,74 @@
+# Latvian translations for nautilus-metadata-editor-extension package.
+# Copyright (C) 2018 THE nautilus-metadata-editor-extension'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the nautilus-metadata-editor-extension package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: nautilus-metadata-editor-extension\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-19 16:41+0300\n"
+"PO-Revision-Date: 2018-06-19 14:19+0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+
+#: data/com.gitlab.nvlgit.metadata-editor.desktop.in:3 src/app.vala:56
+#: src/ui/window.ui:521
+msgid "Metadata Editor"
+msgstr "Metadatu redaktors"
+
+#: data/com.gitlab.nvlgit.metadata-editor.desktop.in:5
+msgid "org.gnome.Nautilus"
+msgstr ""
+
+#: src/app.vala:59
+#, c-format
+msgid "Failed to read a metadata from the “%s”"
+msgstr ""
+
+#: src/app.vala:61
+#, c-format
+msgid "Failed to save the metadata to the “%s”"
+msgstr ""
+
+#: src/ui/window.ui:103
+msgid "Title:"
+msgstr "Virsraksts:"
+
+#: src/ui/window.ui:149
+msgid "Artist:"
+msgstr "Izpildītājs:"
+
+#: src/ui/window.ui:197
+msgid "Album:"
+msgstr "Albums:"
+
+#: src/ui/window.ui:243
+msgid "Genre:"
+msgstr "Žanrs:"
+
+#: src/ui/window.ui:289
+msgid "Year:"
+msgstr "Gads:"
+
+#: src/ui/window.ui:369
+msgid "Track:"
+msgstr "Celiņš:"
+
+#: src/ui/window.ui:441
+msgid "Comment:"
+msgstr "Komentārs:"
+
+#: src/nautilus/nautilus-metadata-editor-extension.c:157
+msgid "Metadata Editor…"
+msgstr "Metadatu redaktors…"
+
+#: src/nautilus/nautilus-metadata-editor-extension.c:158
+msgid "Edit metadata in the media file…"
+msgstr ""

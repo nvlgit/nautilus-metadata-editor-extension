@@ -16,6 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "config.h"
+#include <glib/gi18n-lib.h>
 #include <string.h>
 #include <nautilus-extension.h>
 #include "nautilus-metadata-editor-extension.h"
@@ -152,8 +154,8 @@ printf ("  editor_is_present == FALSE\n");
 	if ( is_one_media_file (files) ) {
 
 		item = nautilus_menu_item_new ("MetadataEditor",
-			                       "Metadata Editor...",
-			                       "Edit metadata in the media file",
+			                       _("Metadata Editor…"),
+			                       _("Edit metadata in the media file…"),
 			                       "accessories-text-editor");
 
 		g_signal_connect (item,

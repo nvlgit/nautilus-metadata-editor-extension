@@ -53,12 +53,12 @@ namespace MetadataEditor {
 
         private void notify_desktop (string basename, FailureType type) {
 
-            var n = new GLib.Notification ("Metadata Editor");
+            var n = new GLib.Notification (_("Metadata Editor") );
 
             if (type == FailureType.READ)
-                n.set_body ( basename + " open or read failure");
+                n.set_body ( _("Failed to read a metadata from the “%s”").printf (basename) );
             else
-                n.set_body ( basename + " save failure");
+                n.set_body ( _("Failed to save the metadata to the “%s”").printf (basename) );
 
             send_notification (null, n);
         }

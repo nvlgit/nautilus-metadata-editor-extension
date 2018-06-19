@@ -310,7 +310,7 @@
                                                     <property name="max_length">4</property>
                                                     <property name="width_chars">10</property>
                                                     <property name="max_width_chars">6</property>
-                                                    <property name="text" translatable="yes">0</property>
+                                                    <property name="text" translatable="no">0</property>
                                                     <property name="caps_lock_warning">False</property>
                                                     <property name="input_purpose">number</property>
                                                     <property name="adjustment">year_adjustment</property>
@@ -391,7 +391,7 @@
                                                     <property name="max_length">2</property>
                                                     <property name="width_chars">3</property>
                                                     <property name="max_width_chars">3</property>
-                                                    <property name="text" translatable="yes">0</property>
+                                                    <property name="text" translatable="no">0</property>
                                                     <property name="caps_lock_warning">False</property>
                                                     <property name="input_purpose">digits</property>
                                                     <property name="adjustment">track_adjustment</property>
@@ -518,8 +518,8 @@
       <object class="GtkHeaderBar" id="header">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="title">Metadata Editor</property>
-        <property name="subtitle">file</property>
+        <property name="title" translatable="yes">Metadata Editor</property>
+        <property name="subtitle" translatable="no">file</property>
         <child>
           <object class="GtkButton" id="btn_cancel">
             <property name="label">gtk-cancel</property>

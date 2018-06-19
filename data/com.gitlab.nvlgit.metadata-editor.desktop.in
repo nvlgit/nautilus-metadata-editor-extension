@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Metadata-editor
+Name=Metadata Editor
 NoDisplay=true
 Icon=org.gnome.Nautilus
 Exec=com.gitlab.nvlgit.metadata-editor
