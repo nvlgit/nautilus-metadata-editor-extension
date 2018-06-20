@@ -132,22 +132,19 @@ get_file_items (NautilusMenuProvider *provider,
                 GtkWidget            *window,
                 GList                *files) {
 
-printf ("in function: get_file_items\n");
-
   GList *items = NULL;
 	NautilusMenuItem *item;
 	MetadataEditor *metadata_editor;
 
 	metadata_editor = NAUTILUS_METADATAEDITOR (provider);
 
-
 	if ( files == NULL ) {
-printf ("  files == NULL\n");
+
     		return NULL;
 	}
 
   if (!editor_is_present () ) {
-printf ("  editor_is_present == FALSE\n");
+
         return NULL;
   }
 
@@ -157,8 +154,13 @@ printf ("  editor_is_present == FALSE\n");
 			                       _("Metadata Editor…"),
 			                       _("Edit metadata in the media file…"),
 			                       "accessories-text-editor");
-
-		g_signal_connect (item,
+/*
+		item = nautilus_menu_item_new ("MetadataEditor",
+			                       g_dgettext (GETTEXT_PACKAGE, "Metadata Editor…"),
+			                       g_dgettext (GETTEXT_PACKAGE, "Edit metadata in the media file…"),
+			                       "accessories-text-editor");
+*/
+    g_signal_connect (item,
 		                  "activate",
 		                  G_CALLBACK (item_activate_cb),
 		                  provider);

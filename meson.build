@@ -6,6 +6,7 @@ project('nautilus-metadata-editor-extension', ['c', 'vala'],
 gnome = import('gnome')
 i18n = import('i18n')
 
+
 doc_subdir = join_paths(get_option('datadir'), 'doc', meson.project_name())
 install_data('README.md',
     install_dir: doc_subdir)

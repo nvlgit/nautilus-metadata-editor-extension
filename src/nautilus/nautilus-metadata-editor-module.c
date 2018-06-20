@@ -23,13 +23,13 @@
 
 void nautilus_module_initialize (GTypeModule *module) {
 
-      metadata_editor_load (module);
 
-      /* Set up gettext translations */
-      bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
-      bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-      textdomain (GETTEXT_PACKAGE);
-
+    /* Set up gettext translations */
+    bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+    bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+    //textdomain (GETTEXT_PACKAGE);
+printf ("  LOCALEDIR: %s\n", LOCALEDIR);
+    metadata_editor_load (module);
 
 }
 

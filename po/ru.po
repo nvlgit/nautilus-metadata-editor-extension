@@ -64,7 +64,7 @@ msgstr "Дорожка:"
 
 #: src/ui/window.ui:441
 msgid "Comment:"
-msgstr "Комментарий"
+msgstr "Комментарий:"
 
 #: src/nautilus/nautilus-metadata-editor-extension.c:157
 #, fuzzy

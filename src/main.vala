@@ -16,11 +16,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
+[CCode(cname="GETTEXT_PACKAGE")] extern const string GETTEXT_PACKAGE;
+[CCode(cname="LOCALEDIR")] extern const string LOCALEDIR;
 
 int main (string[] args) {
 
-	var app = new MetadataEditor.App ();
+
+    Intl.setlocale (LocaleCategory.ALL, "");
+    Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+    Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+    Intl.textdomain (GETTEXT_PACKAGE);
+
+    var app = new MetadataEditor.App ();
 	return app.run (args);
 
 }

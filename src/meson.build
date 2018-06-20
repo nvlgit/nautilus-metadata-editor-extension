@@ -14,7 +14,8 @@ editor_deps = [
 c_args = [
   '-DVERSION="' + meson.project_version() + '"',
   '-DGETTEXT_PACKAGE="nautilus-metadata-editor-extension"',
-  '-DGNOMELOCALEDIR="' + get_option('prefix') + '/' + get_option('localedir') + '"'
+#  '-DLOCALEDIR="' + get_option('prefix') + '/' + get_option('localedir') + '"'
+  '-DLOCALEDIR="' + join_paths(get_option('prefix'), get_option('localedir')) + '"'
 ]
 
 add_project_arguments(['--gresourcesdir', join_paths(meson.current_source_dir(), 'ui')],
