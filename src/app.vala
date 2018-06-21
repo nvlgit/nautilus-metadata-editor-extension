@@ -48,7 +48,6 @@ namespace MetadataEditor {
 			win.failure.connect (notify_desktop);
 			win.open (files[0]);
 			win.present ();
-
 		}
 
 		private void notify_desktop (string basename, FailureType type) {
