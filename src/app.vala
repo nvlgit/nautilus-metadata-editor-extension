@@ -19,48 +19,48 @@
 
 namespace MetadataEditor {
 
-    public enum FailureType {
-        READ,
-        WRITE
-    }
+	public enum FailureType {
+		READ,
+		WRITE
+	}
 
-    const string APP_ID = "com.gitlab.nvlgit.metadata-editor";
+	const string APP_ID = "com.gitlab.nvlgit.metadata-editor";
 
-    public class App : Gtk.Application {
+	public class App : Gtk.Application {
 
-        Window win;
+		Window win;
 
-        public App () {
+		public App () {
 
-		    application_id = APP_ID;
-		    flags |= GLib.ApplicationFlags.HANDLES_OPEN;
+			application_id = APP_ID;
+			flags |= GLib.ApplicationFlags.HANDLES_OPEN;
         }
 
-        protected override void activate () {
+		protected override void activate () {
 
-                base.activate ();
-        }
+			base.activate ();
+		}
 
-        public override void open (GLib.File[] files,
-                                   string      hint) {
+		public override void open (GLib.File[] files,
+		                           string      hint) {
 
-                win = new Window (this);
-                win.failure.connect (notify_desktop);
-                win.open (files[0]);
-    		    win.present ();
+			win = new Window (this);
+			win.failure.connect (notify_desktop);
+			win.open (files[0]);
+			win.present ();
 
-        }
+		}
 
-        private void notify_desktop (string basename, FailureType type) {
+		private void notify_desktop (string basename, FailureType type) {
 
-            var n = new GLib.Notification (_("Metadata Editor") );
+			var n = new GLib.Notification (_("Metadata Editor") );
 
-            if (type == FailureType.READ)
-                n.set_body ( _("Failed to read a metadata from the “%s”").printf (basename) );
-            else
-                n.set_body ( _("Failed to save the metadata to the “%s”").printf (basename) );
+			if (type == FailureType.READ)
+				n.set_body ( _("Failed to read a metadata from the “%s”").printf (basename) );
+			else
+				n.set_body ( _("Failed to save the metadata to the “%s”").printf (basename) );
 
-            send_notification (null, n);
-        }
-    }
+			send_notification (null, n);
+		}
+	}
 }

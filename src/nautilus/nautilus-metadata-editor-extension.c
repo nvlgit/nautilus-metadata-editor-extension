@@ -42,14 +42,14 @@ static void item_activate_cb (NautilusMenuItem *item,
                               gpointer user_data) {
 	GList *files;
 	g_autoptr (GString) command = NULL;
-  g_autofree char *uri = NULL;
+	g_autofree char *uri = NULL;
 
 	files = g_object_get_data (G_OBJECT (item), "files");
-  command = g_string_new (PROGNAME);
+	command = g_string_new (PROGNAME);
 
 	NautilusFileInfo *file = files->data;
 	uri = nautilus_file_info_get_uri (file);
-  g_string_append_printf (command, " \"%s\"", uri);
+	g_string_append_printf (command, " \"%s\"", uri);
 	g_spawn_command_line_async (command->str, NULL);
 }
 
@@ -57,8 +57,8 @@ static void item_activate_cb (NautilusMenuItem *item,
 static gboolean
 editor_is_present (void) {
 
-  g_autofree char* path = g_find_program_in_path (PROGNAME);
-  return path != NULL;
+	g_autofree char* path = g_find_program_in_path (PROGNAME);
+	return path != NULL;
 }
 
 
@@ -130,40 +130,40 @@ get_file_items (NautilusMenuProvider *provider,
                 GtkWidget            *window,
                 GList                *files) {
 
-  GList *items = NULL;
+	GList *items = NULL;
 	NautilusMenuItem *item;
 
 	if ( files == NULL ) {
 		return NULL;
 	}
 
-  if (!editor_is_present () ) {
+	if (!editor_is_present () ) {
 		return NULL;
-  }
+	}
 
 	if ( is_one_media_file (files) ) {
 
 		item = nautilus_menu_item_new ("MetadataEditor",
-			                       _("Metadata Editor…"),
-			                       _("Edit metadata in the media file…"),
-			                       "accessories-text-editor");
+		                                _("Metadata Editor…"),
+		                                _("Edit metadata in the media file…"),
+		                               "accessories-text-editor");
 
-    g_signal_connect (item,
+		g_signal_connect (item,
 		                  "activate",
 		                  G_CALLBACK (item_activate_cb),
 		                  provider);
 
-    g_object_set_data_full (G_OBJECT (item),
-                            "files",
-                            nautilus_file_info_list_copy (files),
-                            (GDestroyNotify) nautilus_file_info_list_free);
+		g_object_set_data_full (G_OBJECT (item),
+		                        "files",
+		                        nautilus_file_info_list_copy (files),
+		                        (GDestroyNotify) nautilus_file_info_list_free);
 
-    items = g_list_append (items, item);
+		items = g_list_append (items, item);
 
-    return items;
-  }
+		return items;
+	}
 
-  return NULL;
+	return NULL;
 }
 
 
@@ -192,5 +192,5 @@ metadata_editor_class_finalize (MetadataEditorClass *klass) {}
 void
 metadata_editor_load (GTypeModule *module) {
 
-  metadata_editor_register_type (module);
+	metadata_editor_register_type (module);
 }

@@ -23,11 +23,11 @@
 
 void nautilus_module_initialize (GTypeModule *module) {
 
-    /* Set up gettext translations */
-    bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
-    bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+	/* Set up gettext translations */
+	bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 
-    metadata_editor_load (module);
+	metadata_editor_load (module);
 }
 
 
@@ -35,11 +35,11 @@ void nautilus_module_shutdown (void) {}
 
 
 void nautilus_module_list_types (const GType **types,
-                                 int   *num_types) {
+                                 int      *num_types) {
 
-    static GType type_list[1] = { 0 };
+	static GType type_list[1] = { 0 };
 
-    type_list[0] = TYPE_METADATA_EDITOR;
-    *types = type_list;
-    *num_types =  G_N_ELEMENTS (type_list);
+	type_list[0] = TYPE_METADATA_EDITOR;
+	*types = type_list;
+	*num_types = G_N_ELEMENTS (type_list);
 }

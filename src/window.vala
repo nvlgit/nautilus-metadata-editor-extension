@@ -43,16 +43,16 @@ namespace MetadataEditor {
 
 		construct {
 
-		    title_row.set_focus_child (title_entry);
-		    artist_row.set_focus_child (artist_entry);
-		    album_row.set_focus_child (album_entry);
-		    genre_row.set_focus_child (genre_entry);
-		    year_row.set_focus_child (year_entry);
-		    track_row.set_focus_child (track_entry);
-		    comment_row.set_focus_child (comment_entry);
+			title_row.set_focus_child (title_entry);
+			artist_row.set_focus_child (artist_entry);
+			album_row.set_focus_child (album_entry);
+			genre_row.set_focus_child (genre_entry);
+			year_row.set_focus_child (year_entry);
+			track_row.set_focus_child (track_entry);
+			comment_row.set_focus_child (comment_entry);
 
-		    btn_save.clicked.connect (apply_changes);
-		    btn_cancel.clicked.connect ( () => { close (); });
+			btn_save.clicked.connect (apply_changes);
+			btn_cancel.clicked.connect ( () => { close (); });
 		}
 
 		public Window (Gtk.Application app) {
@@ -61,45 +61,45 @@ namespace MetadataEditor {
 
 		public void open (GLib.File f) {
 
-		    file = f;
-		    tag_lib_file =  new TagLib.File (file.get_path () );
+			file = f;
+			tag_lib_file =  new TagLib.File (file.get_path () );
 
-		    if  (tag_lib_file.is_valid () ) {
-		        populate_ui ();
-		    } else {
-		        debug ("Failed to read a metadata from the %s", file.get_path () );
-		        failure (file.get_basename (), FailureType.READ); // emit signal
-		        close ();
-		    }
+			if (tag_lib_file.is_valid () ) {
+				populate_ui ();
+			} else {
+				debug ("Failed to read a metadata from the %s", file.get_path () );
+				failure (file.get_basename (), FailureType.READ); // emit signal
+				close ();
+			}
 		}
 
 		private void populate_ui () {
 
-		    title_entry.text = tag_lib_file.tag.title;
-		    artist_entry.text = tag_lib_file.tag.artist;
-		    album_entry.text = tag_lib_file.tag.album;
-		    genre_entry.text = tag_lib_file.tag.genre;
-		    comment_entry.text = tag_lib_file.tag.comment;
-		    year_entry.set_value ( (double) tag_lib_file.tag.year);
-		    track_entry.set_value ( (double) tag_lib_file.tag.track);
-		    header.subtitle = file.get_path ();
+			title_entry.text = tag_lib_file.tag.title;
+			artist_entry.text = tag_lib_file.tag.artist;
+			album_entry.text = tag_lib_file.tag.album;
+			genre_entry.text = tag_lib_file.tag.genre;
+			comment_entry.text = tag_lib_file.tag.comment;
+			year_entry.set_value ( (double) tag_lib_file.tag.year);
+			track_entry.set_value ( (double) tag_lib_file.tag.track);
+			header.subtitle = file.get_path ();
 		}
 
 		private void apply_changes () {
 
-		    tag_lib_file.tag.title = title_entry.text;
-		    tag_lib_file.tag.artist = artist_entry.text;
-		    tag_lib_file.tag.album = album_entry.text;
-		    tag_lib_file.tag.genre = genre_entry.text;
-		    tag_lib_file.tag.comment = comment_entry.text;
-		    tag_lib_file.tag.year = ( (uint) year_entry.value);
-		    tag_lib_file.tag.track = ( (uint) track_entry.value);
-		    bool saved = tag_lib_file.save ();
-		    if (!saved) {
-		        debug ("Failed to save the metadata to the %s", file.get_path () );
-		        failure (file.get_basename (), FailureType.WRITE); // emit signal
-		    }
-		    close ();
+			tag_lib_file.tag.title = title_entry.text;
+			tag_lib_file.tag.artist = artist_entry.text;
+			tag_lib_file.tag.album = album_entry.text;
+			tag_lib_file.tag.genre = genre_entry.text;
+			tag_lib_file.tag.comment = comment_entry.text;
+			tag_lib_file.tag.year = ( (uint) year_entry.value);
+			tag_lib_file.tag.track = ( (uint) track_entry.value);
+			bool saved = tag_lib_file.save ();
+			if (!saved) {
+				debug ("Failed to save the metadata to the %s", file.get_path () );
+				failure (file.get_basename (), FailureType.WRITE); // emit signal
+			}
+			close ();
 		}
 	}
 }
