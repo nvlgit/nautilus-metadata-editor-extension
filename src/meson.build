@@ -10,12 +10,12 @@ editor_deps = [
   dependency('taglib_c',  version: '>= 1.11'),
 ]
 
+message('LOCALEDIR:' + ' ' + join_paths(prefix, localedir))
 
 c_args = [
   '-DVERSION="' + meson.project_version() + '"',
   '-DGETTEXT_PACKAGE="nautilus-metadata-editor-extension"',
-#  '-DLOCALEDIR="' + get_option('prefix') + '/' + get_option('localedir') + '"'
-  '-DLOCALEDIR="' + join_paths(get_option('prefix'), get_option('localedir')) + '"'
+  '-DLOCALEDIR="' + join_paths(prefix, localedir) + '"'
 ]
 
 add_project_arguments(['--gresourcesdir', join_paths(meson.current_source_dir(), 'ui')],

@@ -21,12 +21,15 @@
 
 int main (string[] args) {
 
-
     Intl.setlocale (LocaleCategory.ALL, "");
     Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
     Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
     Intl.textdomain (GETTEXT_PACKAGE);
 
+    if (args.length != 2) {
+        debug ("Usage: %s path/to/file\n", args[0]);
+        return 1;
+    }
     var app = new MetadataEditor.App ();
 	return app.run (args);
 

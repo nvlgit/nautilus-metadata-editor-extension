@@ -67,8 +67,9 @@ namespace MetadataEditor {
 		    if  (tag_lib_file.is_valid () ) {
 		        populate_ui ();
 		    } else {
+		        debug ("Failed to read a metadata from the %s", file.get_path () );
 		        failure (file.get_basename (), FailureType.READ); // emit signal
-			close ();
+		        close ();
 		    }
 		}
 
@@ -94,8 +95,10 @@ namespace MetadataEditor {
 		    tag_lib_file.tag.year = ( (uint) year_entry.value);
 		    tag_lib_file.tag.track = ( (uint) track_entry.value);
 		    bool saved = tag_lib_file.save ();
-		    if (!saved)
+		    if (!saved) {
+		        debug ("Failed to save the metadata to the %s", file.get_path () );
 		        failure (file.get_basename (), FailureType.WRITE); // emit signal
+		    }
 		    close ();
 		}
 	}
