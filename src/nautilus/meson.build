@@ -13,16 +13,12 @@ extension_deps = [
 
 config_h = configuration_data()
 config_h.set_quoted('GETTEXT_PACKAGE', 'nautilus-metadata-editor-extension')
-locale_dir = join_paths(get_option('prefix'), get_option('localedir'))
-message('LOCALEDIR:' + ' ' + locale_dir)
-config_h.set_quoted('LOCALEDIR', locale_dir)
+config_h.set_quoted('LOCALEDIR', join_paths(prefix, localedir))
+
 configure_file(
   output: 'config.h',
   configuration: config_h,
 )
-
-libdir = get_option('libdir')
-extensiondir = join_paths(libdir, 'nautilus', 'extensions-3.0')
 
 extension = shared_module (
   'nautilus-metadata-editor-extension',

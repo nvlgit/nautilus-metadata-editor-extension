@@ -17,14 +17,16 @@
  */
 
 #include "config.h"
-#include <glib/gi18n-lib.h>
 #include <string.h>
+#include <glib/gi18n-lib.h>
 #include <nautilus-extension.h>
 #include "nautilus-metadata-editor-extension.h"
 
 #define PROGNAME "com.gitlab.nvlgit.metadata-editor"
+#define IS_MIME nautilus_file_info_is_mime_type ((NautilusFileInfo *) files->data
 
 struct _MetadataEditor {
+
 	GObject  parent_instance;
 	gboolean me_present;
 };
@@ -55,10 +57,7 @@ static void item_activate_cb (NautilusMenuItem *item,
 static gboolean
 editor_is_present (void) {
 
-  g_autofree char *path = NULL;
-
-  path = g_find_program_in_path (PROGNAME);
-
+  g_autofree char* path = g_find_program_in_path (PROGNAME);
   return path != NULL;
 }
 
@@ -67,61 +66,60 @@ static gboolean
 is_one_media_file (GList *files) {
 
 	if ( (files != NULL) && (files->next != NULL) ) {
-    		return FALSE;
-	}
-
-	if ( nautilus_file_info_is_directory ((NautilusFileInfo *) files->data) )  {
 		return FALSE;
 	}
 
-	if ( nautilus_file_info_is_mime_type ((NautilusFileInfo *) files->data, "audio/x-mp3") ) {
+	if ( nautilus_file_info_is_directory ((NautilusFileInfo *) files->data) ) {
+		return FALSE;
+	}
+
+	if (IS_MIME, "audio/x-mp3") ) {
 		return TRUE;
 	}
 
-	if ( nautilus_file_info_is_mime_type ((NautilusFileInfo *) files->data, "audio/x-flac") ) {
+	if (IS_MIME, "audio/x-flac") ) {
 		return TRUE;
 	}
 
-	if ( nautilus_file_info_is_mime_type ((NautilusFileInfo *) files->data, "audio/x-vorbis+ogg") ) {
+	if (IS_MIME, "audio/x-vorbis+ogg") ) {
 		return TRUE;
 	}
 
-	if ( nautilus_file_info_is_mime_type ((NautilusFileInfo *) files->data, "audio/x-speex+ogg") ) {
+	if (IS_MIME, "audio/x-speex+ogg") ) {
 		return TRUE;
 	}
 
-	if ( nautilus_file_info_is_mime_type ((NautilusFileInfo *) files->data, "audio/x-musepack") ) {
+	if (IS_MIME, "audio/x-musepack") ) {
 		return TRUE;
 	}
 
-	if ( nautilus_file_info_is_mime_type ((NautilusFileInfo *) files->data, "audio/x-wavpack") ) {
+	if (IS_MIME, "audio/x-wavpack") ) {
 		return TRUE;
 	}
 
-	if ( nautilus_file_info_is_mime_type ((NautilusFileInfo *) files->data, "audio/x-tta") ) {
+	if (IS_MIME, "audio/x-tta") ) {
 		return TRUE;
 	}
 
-	if ( nautilus_file_info_is_mime_type ((NautilusFileInfo *) files->data, "audio/x-wav") ) {
+	if (IS_MIME, "audio/x-wav") ) {
 		return TRUE;
 	}
 
-	if ( nautilus_file_info_is_mime_type ((NautilusFileInfo *) files->data, "audio/x-aiff") ) {
+	if (IS_MIME, "audio/x-aiff") ) {
 		return TRUE;
 	}
 
-	if ( nautilus_file_info_is_mime_type ((NautilusFileInfo *) files->data, "audio/m4a") ) {
+	if (IS_MIME, "audio/m4a") ) {
 		return TRUE;
 	}
 
-	if ( nautilus_file_info_is_mime_type ((NautilusFileInfo *) files->data, "video/mp4") ) {
+	if (IS_MIME, "video/mp4") ) {
 		return TRUE;
 	}
 
-	if ( nautilus_file_info_is_mime_type ((NautilusFileInfo *) files->data, "video/x-ms-asf") ) {
+	if (IS_MIME, "video/x-ms-asf") ) {
 		return TRUE;
 	}
-
 
 	return FALSE;
 }
@@ -134,18 +132,13 @@ get_file_items (NautilusMenuProvider *provider,
 
   GList *items = NULL;
 	NautilusMenuItem *item;
-	MetadataEditor *metadata_editor;
-
-	metadata_editor = NAUTILUS_METADATAEDITOR (provider);
 
 	if ( files == NULL ) {
-
-    		return NULL;
+		return NULL;
 	}
 
   if (!editor_is_present () ) {
-
-        return NULL;
+		return NULL;
   }
 
 	if ( is_one_media_file (files) ) {
@@ -154,12 +147,7 @@ get_file_items (NautilusMenuProvider *provider,
 			                       _("Metadata Editor…"),
 			                       _("Edit metadata in the media file…"),
 			                       "accessories-text-editor");
-/*
-		item = nautilus_menu_item_new ("MetadataEditor",
-			                       g_dgettext (GETTEXT_PACKAGE, "Metadata Editor…"),
-			                       g_dgettext (GETTEXT_PACKAGE, "Edit metadata in the media file…"),
-			                       "accessories-text-editor");
-*/
+
     g_signal_connect (item,
 		                  "activate",
 		                  G_CALLBACK (item_activate_cb),
@@ -174,22 +162,22 @@ get_file_items (NautilusMenuProvider *provider,
 
     return items;
   }
-  return NULL;
 
+  return NULL;
 }
 
 
 static void
 menu_provider_iface_init (NautilusMenuProviderInterface *iface) {
 
-  	iface->get_file_items = get_file_items;
+	iface->get_file_items = get_file_items;
 }
 
 
 static void
 metadata_editor_init (MetadataEditor *metadata_editor) {
 
-    metadata_editor->me_present = editor_is_present ();
+	metadata_editor->me_present = editor_is_present ();
 }
 
 

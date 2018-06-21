@@ -23,9 +23,9 @@
 
 G_BEGIN_DECLS
 
-#define NAUTILUS_TYPE_METADATAEDITOR  (metadata_editor_get_type ())
+#define TYPE_METADATA_EDITOR  (metadata_editor_get_type ())
 
-G_DECLARE_FINAL_TYPE (MetadataEditor, metadata_editor, NAUTILUS, METADATAEDITOR, GObject)
+G_DECLARE_FINAL_TYPE (MetadataEditor, metadata_editor, METADATA, EDITOR, GObject)
 
 void metadata_editor_load (GTypeModule *module);
 
