@@ -34,7 +34,7 @@ namespace MetadataEditor {
 
 			application_id = APP_ID;
 			flags |= GLib.ApplicationFlags.HANDLES_OPEN;
-        }
+		}
 
 		protected override void activate () {
 
