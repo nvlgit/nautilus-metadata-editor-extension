@@ -12,19 +12,22 @@ Nautilus extension with simple Metadata Editor. Editor avalible for files with t
 ### Building and Installation
 
 ```bash
-git clone https://github.com/nvlgit/nautilus-metadata-editor-extension.git && cd nautilus-metadata-editor-extension
+git clone https://gitlab.com/nvlgit/nautilus-metadata-editor-extension.git && cd nautilus-metadata-editor-extension
 meson builddir --prefix=/usr && cd builddir
 ninja
 su -c 'ninja install'
 ```
-For rpmbuild: <a href="https://github.com/nvlgit/fedora-specs/blob/master/nautilus-metadata-editor-extension.spec">nautilus-metadata-editor-extension.spec</a> 
+For rpmbuild: <a href="https://gitlab.com/nvlgit/fedora-specs/blob/master/nautilus-metadata-editor-extension.spec">nautilus-metadata-editor-extension.spec</a> 
 
 ### Build Dependencies
 * glib-2.0 >=2.50
-* gmodule-2.0 >=2.50
 * gtk+-3.0 >= 3.22
 * taglib_c >= 1.11
 * vala >= 0.40 (vala-0.40/vapi/taglib_c.vapi)
 * libnautilus-extension >= 3.28
 * meson
+
+### Run Dependencies
+* taglib >= 1.11
+* nautilus
 
