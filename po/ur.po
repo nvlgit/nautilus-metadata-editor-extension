@@ -38,22 +38,22 @@ msgid "Failed to save the metadata to the “%s”"
 msgstr ""
 
 #: src/ui/window.ui:103
-#, fuzzy
+#,
 msgid "Title:"
 msgstr "عنوان:"
 
 #: src/ui/window.ui:149
-#, fuzzy
+#,
 msgid "Artist:"
 msgstr "فنکار:"
 
 #: src/ui/window.ui:197
-#, fuzzy
+#,
 msgid "Album:"
 msgstr "ایلبم:"
 
 #: src/ui/window.ui:243
-#, fuzzy
+#,
 msgid "Genre:"
 msgstr "نوعیت:"
 
@@ -62,12 +62,12 @@ msgid "Year:"
 msgstr "سال:"
 
 #: src/ui/window.ui:369
-#, fuzzy
+#,
 msgid "Track:"
 msgstr "ٹریک:"
 
 #: src/ui/window.ui:441
-#, fuzzy
+#,
 msgid "Comment:"
 msgstr "تبصرہ:"
 

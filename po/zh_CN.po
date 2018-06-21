@@ -41,37 +41,37 @@ msgid "Failed to save the metadata to the “%s”"
 msgstr ""
 
 #: src/ui/window.ui:103
-#, fuzzy
+#,
 msgid "Title:"
 msgstr "标题："
 
 #: src/ui/window.ui:149
-#, fuzzy
+#,
 msgid "Artist:"
 msgstr "艺术家："
 
 #: src/ui/window.ui:197
-#, fuzzy
+#,
 msgid "Album:"
 msgstr "专辑："
 
 #: src/ui/window.ui:243
-#, fuzzy
+#,
 msgid "Genre:"
 msgstr "流派："
 
 #: src/ui/window.ui:289
-#, fuzzy
+#,
 msgid "Year:"
 msgstr "年份："
 
 #: src/ui/window.ui:369
-#, fuzzy
+#,
 msgid "Track:"
 msgstr "音轨："
 
 #: src/ui/window.ui:441
-#, fuzzy
+#,
 msgid "Comment:"
 msgstr "注释："
 

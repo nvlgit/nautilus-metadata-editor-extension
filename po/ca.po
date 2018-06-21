@@ -42,37 +42,37 @@ msgid "Failed to save the metadata to the “%s”"
 msgstr ""
 
 #: src/ui/window.ui:103
-#, fuzzy
+#,
 msgid "Title:"
 msgstr "Títol:"
 
 #: src/ui/window.ui:149
-#, fuzzy
+#,
 msgid "Artist:"
 msgstr "Artista:"
 
 #: src/ui/window.ui:197
-#, fuzzy
+#,
 msgid "Album:"
 msgstr "Àlbum:"
 
 #: src/ui/window.ui:243
-#, fuzzy
+#,
 msgid "Genre:"
 msgstr "Gènere:"
 
 #: src/ui/window.ui:289
-#, fuzzy
+#,
 msgid "Year:"
 msgstr "Any:"
 
 #: src/ui/window.ui:369
-#, fuzzy
+#,
 msgid "Track:"
 msgstr "Pista:"
 
 #: src/ui/window.ui:441
-#, fuzzy
+#,
 msgid "Comment:"
 msgstr "Comentari:"
 

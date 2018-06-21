@@ -39,17 +39,17 @@ msgid "Failed to save the metadata to the “%s”"
 msgstr ""
 
 #: src/ui/window.ui:103
-#, fuzzy
+#,
 msgid "Title:"
 msgstr "ਟਾਇਟਲ:"
 
 #: src/ui/window.ui:149
-#, fuzzy
+#,
 msgid "Artist:"
 msgstr "ਕਲਾਕਾਰ:"
 
 #: src/ui/window.ui:197
-#, fuzzy
+#,
 msgid "Album:"
 msgstr "ਐਲਬਮ:"
 
@@ -62,12 +62,12 @@ msgid "Year:"
 msgstr "ਸਾਲ:"
 
 #: src/ui/window.ui:369
-#, fuzzy
+#,
 msgid "Track:"
 msgstr "ਟਰੈਕ:"
 
 #: src/ui/window.ui:441
-#, fuzzy
+#,
 msgid "Comment:"
 msgstr "ਟਿੱਪਣੀ:"
 

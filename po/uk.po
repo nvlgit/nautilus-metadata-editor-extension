@@ -41,37 +41,37 @@ msgid "Failed to save the metadata to the “%s”"
 msgstr ""
 
 #: src/ui/window.ui:103
-#, fuzzy
+#,
 msgid "Title:"
 msgstr "Назва:"
 
 #: src/ui/window.ui:149
-#, fuzzy
+#,
 msgid "Artist:"
 msgstr "Виконавець:"
 
 #: src/ui/window.ui:197
-#, fuzzy
+#,
 msgid "Album:"
 msgstr "Альбом:"
 
 #: src/ui/window.ui:243
-#, fuzzy
+#,
 msgid "Genre:"
 msgstr "Жанр:"
 
 #: src/ui/window.ui:289
-#, fuzzy
+#,
 msgid "Year:"
 msgstr "Рік:"
 
 #: src/ui/window.ui:369
-#, fuzzy
+#,
 msgid "Track:"
 msgstr "Трек:"
 
 #: src/ui/window.ui:441
-#, fuzzy
+#,
 msgid "Comment:"
 msgstr "Коментар:"
 

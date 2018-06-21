@@ -29,12 +29,12 @@ msgid "org.gnome.Nautilus"
 msgstr ""
 
 #: src/app.vala:59
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to read a metadata from the “%s”"
 msgstr "Неудалось прочитать метаданные из «%s»"
 
 #: src/app.vala:61
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to save the metadata to the “%s”"
 msgstr "Неудалось сохранить метаданные в «%s»"
 
@@ -67,11 +67,9 @@ msgid "Comment:"
 msgstr "Комментарий:"
 
 #: src/nautilus/nautilus-metadata-editor-extension.c:157
-#, fuzzy
 msgid "Metadata Editor…"
 msgstr "Редактор метаданных…"
 
 #: src/nautilus/nautilus-metadata-editor-extension.c:158
-#, fuzzy
 msgid "Edit metadata in the media file…"
 msgstr "Редактирование метаданных медиафайла…"
