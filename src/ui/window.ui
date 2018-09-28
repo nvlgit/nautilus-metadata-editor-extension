@@ -471,6 +471,12 @@
       </object>
     </child>
   </template>
+  <object class="GtkSizeGroup" id="btn_size_group">
+    <widgets>
+      <widget name="btn_cancel"/>
+      <widget name="btn_save"/>
+    </widgets>
+  </object>
   <object class="GtkSizeGroup" id="labels_size_group">
     <widgets>
       <widget name="title_label"/>
