@@ -127,7 +127,6 @@ is_one_media_file (GList *files) {
 
 static GList *
 get_file_items (NautilusMenuProvider *provider,
-                GtkWidget            *window,
                 GList                *files) {
 
 	GList *items = NULL;
