@@ -1,5 +1,5 @@
 project('nautilus-metadata-editor-extension', ['c', 'vala'],
-  version: '3.28.1',
+  version: '43.0.1',
   meson_version: '>= 0.40.0',
 )
 
@@ -8,7 +8,7 @@ bindir = get_option('bindir')
 datadir = get_option('datadir')
 desktopdir = join_paths(datadir, 'applications')
 libdir = get_option('libdir')
-extensiondir = join_paths(libdir, 'nautilus', 'extensions-3.0')
+extensiondir = join_paths(libdir, 'nautilus', 'extensions-4')
 localedir = get_option('localedir')
 prefix = get_option('prefix')
 
