@@ -6,8 +6,8 @@ extension_sources = [
 
 extension_deps = [
   dependency('gio-2.0', version: '>= 2.50'),
-  dependency('gtk+-3.0', version: '>= 3.22'),
-  dependency('libnautilus-extension', version: '>= 3.28'),
+  dependency('gtk4', version: '>= 4.8'),
+  dependency('libnautilus-extension-4'),
   dependency('gmodule-2.0'),
 ]
 
