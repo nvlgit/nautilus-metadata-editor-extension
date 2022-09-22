@@ -26,16 +26,23 @@ namespace MetadataEditor {
 
 	const string APP_ID = "com.gitlab.nvlgit.metadata-editor";
 
-	public class App : Gtk.Application {
+	public class App : Adw.Application {
 
 		Window win;
 
 		public App () {
-
-			application_id = APP_ID;
-			flags |= GLib.ApplicationFlags.HANDLES_OPEN;
+			Object (application_id: APP_ID, flags: ApplicationFlags.HANDLES_OPEN);
 		}
 
+		construct {
+			ActionEntry[] action_entries = {
+				{ "quit", this.quit },
+				{ "save", this.save }
+			};
+			this.add_action_entries (action_entries, this);
+			this.set_accels_for_action ("app.quit", {"<primary>q",
+			                                         "Escape" });
+		}
 		protected override void activate () {
 
 			base.activate ();
@@ -60,6 +67,9 @@ namespace MetadataEditor {
 				n.set_body ( _("Failed to save the metadata to the “%s”").printf (basename) );
 
 			send_notification (null, n);
+		}
+		private void save () {
+			win.apply_changes();
 		}
 	}
 }
