@@ -21,10 +21,11 @@ For rpmbuild: <a href="https://gitlab.com/nvlgit/fedora-specs/blob/master/nautil
 
 ### Build Dependencies
 * glib-2.0 >=2.50
-* gtk+-3.0 >= 3.22
+* gtk4 >= 4.8
+* libadwaita-1 >= 1.2
 * taglib_c >= 1.11
 * vala >= 0.40 (vala-0.40/vapi/taglib_c.vapi)
-* libnautilus-extension >= 3.28
+* libnautilus-extension-4
 * meson
 
 ### Run Dependencies
