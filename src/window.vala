@@ -18,41 +18,31 @@
 
 namespace MetadataEditor {
 	[GtkTemplate (ui = "/com/gitlab/nvlgit/nautilus-metadata-editor/window.ui")]
-	public class Window : Gtk.ApplicationWindow {
+	public class Window : Adw.ApplicationWindow {
 
-		[GtkChild] Gtk.Entry title_entry;
-		[GtkChild] Gtk.Entry album_entry;
-		[GtkChild] Gtk.Entry artist_entry;
-		[GtkChild] Gtk.Entry genre_entry;
-		[GtkChild] Gtk.Entry comment_entry;
-		[GtkChild] Gtk.SpinButton year_entry;
-		[GtkChild] Gtk.SpinButton track_entry;
-		[GtkChild] Gtk.ListBoxRow title_row;
-		[GtkChild] Gtk.ListBoxRow artist_row;
-		[GtkChild] Gtk.ListBoxRow album_row;
-		[GtkChild] Gtk.ListBoxRow genre_row;
-		[GtkChild] Gtk.ListBoxRow year_row;
-		[GtkChild] Gtk.ListBoxRow track_row;
-		[GtkChild] Gtk.ListBoxRow comment_row;
-		[GtkChild] Gtk.Button btn_cancel;
-		[GtkChild] Gtk.Button btn_save;
-		[GtkChild] Gtk.HeaderBar header;
+		[GtkChild] private unowned Adw.EntryRow title_entry;
+		[GtkChild] private unowned Adw.EntryRow album_entry;
+		[GtkChild] private unowned Adw.EntryRow artist_entry;
+		[GtkChild] private unowned Adw.EntryRow genre_entry;
+		[GtkChild] private unowned Adw.EntryRow comment_entry;
+		[GtkChild] private unowned Gtk.SpinButton year_entry;
+		[GtkChild] private unowned Gtk.SpinButton track_entry;
+		[GtkChild] private unowned Gtk.ListBoxRow year_row;
+		[GtkChild] private unowned Gtk.ListBoxRow track_row;
+		[GtkChild] private unowned Gtk.Button btn_cancel;
+		[GtkChild] private unowned Gtk.Button btn_save;
+		[GtkChild] private unowned Adw.WindowTitle header;
 		private GLib.File file;
 		private TagLib.File tag_lib_file;
 		public signal void failure (string basename, FailureType type);
 
 		construct {
 
-			title_row.set_focus_child (title_entry);
-			artist_row.set_focus_child (artist_entry);
-			album_row.set_focus_child (album_entry);
-			genre_row.set_focus_child (genre_entry);
-			year_row.set_focus_child (year_entry);
-			track_row.set_focus_child (track_entry);
-			comment_row.set_focus_child (comment_entry);
+			((Gtk.Widget) year_row).set_focus_child ((Gtk.Widget) year_entry);
+			((Gtk.Widget) track_row).set_focus_child ((Gtk.Widget) track_entry);
 
 			btn_save.clicked.connect (apply_changes);
-			btn_cancel.clicked.connect ( () => { close (); });
+			btn_cancel.clicked.connect ( () => {this. close (); });
 		}
 
 		public Window (Gtk.Application app) {
@@ -69,7 +59,7 @@ namespace MetadataEditor {
 			} else {
 				debug ("Failed to read a metadata from the %s", file.get_path () );
 				failure (file.get_basename (), FailureType.READ); // emit signal
-				close ();
+				this.close ();
 			}
 		}
 
@@ -83,9 +73,10 @@ namespace MetadataEditor {
 			year_entry.set_value ( (double) tag_lib_file.tag.year);
 			track_entry.set_value ( (double) tag_lib_file.tag.track);
 			header.subtitle = file.get_path ();
+			set_notify ();
 		}
 
-		private void apply_changes () {
+		public void apply_changes () {
 
 			tag_lib_file.tag.title = title_entry.text;
 			tag_lib_file.tag.artist = artist_entry.text;
@@ -99,7 +90,23 @@ namespace MetadataEditor {
 				debug ("Failed to save the metadata to the %s", file.get_path () );
 				failure (file.get_basename (), FailureType.WRITE); // emit signal
 			}
-			close ();
+			this.close ();
+		}
+		private void set_notify () {
+			title_entry.notify["text"].connect(set_suggested_btn_save);
+			artist_entry.notify["text"].connect(set_suggested_btn_save);
+			album_entry.notify["text"].connect(set_suggested_btn_save);
+			genre_entry.notify["text"].connect(set_suggested_btn_save);
+			comment_entry.notify["text"].connect(set_suggested_btn_save);
+			year_entry.value_changed.connect(set_suggested_btn_save);
+			track_entry.value_changed.connect(set_suggested_btn_save);
+
+
+		}
+		private void set_suggested_btn_save () {
+			btn_save.get_style_context().add_class("suggested-action");
+			btn_save.set_sensitive(true);
+			btn_save.set_receives_default(true);
 		}
 	}
 }
