@@ -17,7 +17,7 @@ meson builddir --prefix=/usr && cd builddir
 ninja
 su -c 'ninja install'
 ```
-For rpmbuild: <a href="https://gitlab.com/nvlgit/fedora-specs/blob/master/nautilus-metadata-editor-extension.spec">nautilus-metadata-editor-extension.spec</a> 
+For rpmbuild: <a href="https://github.com/nvlgit/fedora-specs/blob/master/nautilus-metadata-editor-extension.spec">nautilus-metadata-editor-extension.spec</a> 
 
 ### Build Dependencies
 * glib-2.0 >=2.50
