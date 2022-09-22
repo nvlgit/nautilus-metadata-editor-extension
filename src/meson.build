@@ -6,7 +6,8 @@ editor_sources = [
 
 editor_deps = [
   dependency('gio-2.0', version: '>= 2.50'),
-  dependency('gtk+-3.0', version: '>= 3.22'),
+  dependency('gtk4', version: '>= 4.8'),
+  dependency('libadwaita-1', version: '>= 1.2'),
   dependency('taglib_c',  version: '>= 1.11'),
 ]
 
