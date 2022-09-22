@@ -1,7 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.0 -->
 <interface>
-  <requires lib="gtk+" version="3.22"/>
+  <requires lib="gtk" version="4.8"/>
+  <requires lib="Adw" version="1.2"/>
+  <template class="MetadataEditorWindow" parent="AdwApplicationWindow">
+    <property name="default-width">440</property>
+    <property name="default-height">480</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkHeaderBar">
+            <property name="decoration_layout">none</property>
+                  <child type="title">
+                    <object class="AdwWindowTitle" id="header">
+                      <property name="title" translatable="yes">Metadata Editor</property>
+                      <property name="subtitle"> </property>
+                    </object>
+                  </child>
+            <child type="end">
+              <object class="GtkButton" id="btn_save">
+                <property name="label" translatable="yes">Save</property>
+                <property name="sensitive">false</property>
+              </object>
+            </child>
+            <child type="start">
+              <object class="GtkButton" id="btn_cancel">
+                <property name="label" translatable="yes">Cancel</property>
+                <property name="action-name">app.quit</property>
+                <style>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child type="content">
+      <object class="GtkScrolledWindow">
+        <property name="hscrollbar-policy">never</property>
+        <child>
+          <object class="AdwClamp">
+            <property name="margin_top">32</property>
+            <property name="margin_bottom">32</property>
+            <property name="margin_start">18</property>
+            <property name="margin_end">18</property>
+            <child>
+              <object class="GtkBox">
+                <property name="hexpand">True</property>
+                <property name="vexpand">True</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkListBox">
+                    <property name="margin_bottom">32</property>
+                    <property name="selection-mode">none</property>
+                    <style>
+                      <class name="boxed-list"/>
+                    </style>
+                    <child>
+                      <object class="AdwEntryRow" id="title_entry">
+                        <property name="title" translatable="yes">Title:</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwEntryRow" id="artist_entry">
+                        <property name="title" translatable="yes">Artist:</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwEntryRow" id="album_entry">
+                        <property name="title" translatable="yes">Album:</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwEntryRow" id="genre_entry">
+                        <property name="title" translatable="yes">Genre:</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwActionRow" id="year_row">
+                        <property name="focusable">False</property>
+                        <child type="prefix">
+                          <object class="GtkLabel">
+                             <property name="label" translatable="yes">Year:</property>
+                             <property name="focusable">False</property>
+                              <style>
+                                 <class name="dim-label"/>
+                                 <class name="title"/>
+                              </style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSpinButton" id="year_entry">
+                                <property name="can_focus">True</property>
+                                <property name="width_chars">4</property>
+                                <property name="max_width_chars">4</property>
+                                <property name="adjustment">year_adjustment</property>
+                                <property name="numeric">True</property>
+                                <property name="value">1900</property>
+                              <style>
+                                 <class name="flat"/>
+                              </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwActionRow" id ="track_row">
+                       <property name="focusable">False</property>
+                       <child type="prefix">
+                          <object class="GtkLabel">
+                             <property name="label" translatable="yes">Track:</property>
+                             <property name="focusable">False</property>
+                             <style>
+                                 <class name="dim-label"/>
+                                 <class name="title"/>
+                              </style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSpinButton" id="track_entry">
+                                <property name="width_chars">4</property>
+                                <property name="max_width_chars">4</property>
+                                <property name="text">0</property>
+                                <property name="adjustment">track_adjustment</property>
+                                <property name="numeric">True</property>
+                              <style>
+                                 <class name="flat"/>
+                              </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwEntryRow" id="comment_entry">
+                        <property name="title" translatable="yes">Comment:</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+
+  <object class="GtkSizeGroup" id="btn_size_group">
+    <widgets>
+      <widget name="btn_cancel"/>
+      <widget name="btn_save"/>
+    </widgets>
+  </object>
   <object class="GtkAdjustment" id="track_adjustment">
     <property name="upper">99</property>
     <property name="step_increment">1</property>
@@ -13,490 +163,5 @@
     <property name="value">1900</property>
     <property name="step_increment">1</property>
     <property name="page_increment">10</property>
-  </object>
-  <template class="MetadataEditorWindow" parent="GtkApplicationWindow">
-    <property name="can_focus">False</property>
-    <property name="resizable">False</property>
-    <property name="icon_name">org.gnome.Nautilus</property>
-    <property name="type_hint">dialog</property>
-    <property name="skip_taskbar_hint">True</property>
-    <child>
-      <object class="GtkBox" id="main_box">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="baseline_position">top</property>
-        <child>
-          <object class="GtkFrame">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="valign">start</property>
-            <property name="border_width">32</property>
-            <property name="label_xalign">0</property>
-            <child>
-              <object class="GtkListBox">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="selection_mode">none</property>
-                <property name="activate_on_single_click">False</property>
-                <child>
-                  <object class="GtkListBoxRow" id="title_row">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="hexpand">True</property>
-                    <property name="selectable">False</property>
-                    <child>
-                      <object class="GtkBox">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="hexpand">True</property>
-                        <property name="border_width">12</property>
-                        <child>
-                          <object class="GtkLabel" id="title_label">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="margin_end">12</property>
-                            <property name="label" translatable="yes">Title:</property>
-                            <property name="xalign">1</property>
-                            <attributes>
-                              <attribute name="weight" value="semibold"/>
-                            </attributes>
-                          </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkEntry" id="title_entry">
-                            <property name="width_request">540</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="hexpand">True</property>
-                          </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">False</property>
-                            <property name="position">1</property>
-                          </packing>
-                        </child>
-                      </object>
-                    </child>
-                    <style>
-                      <class name="background"/>
-                    </style>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkListBoxRow" id="artist_row">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="hexpand">True</property>
-                    <property name="selectable">False</property>
-                    <child>
-                      <object class="GtkBox">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="hexpand">True</property>
-                        <property name="border_width">12</property>
-                        <child>
-                          <object class="GtkLabel" id="artist_label">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="margin_end">12</property>
-                            <property name="label" translatable="yes">Artist:</property>
-                            <property name="xalign">1</property>
-                            <attributes>
-                              <attribute name="weight" value="semibold"/>
-                            </attributes>
-                          </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkEntry" id="artist_entry">
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="halign">end</property>
-                            <property name="hexpand">True</property>
-                          </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">False</property>
-                            <property name="position">1</property>
-                          </packing>
-                        </child>
-                      </object>
-                    </child>
-                    <style>
-                      <class name="background"/>
-                    </style>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkListBoxRow" id="album_row">
-                    <property name="height_request">-1</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="hexpand">True</property>
-                    <property name="selectable">False</property>
-                    <child>
-                      <object class="GtkBox">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="hexpand">True</property>
-                        <property name="border_width">12</property>
-                        <child>
-                          <object class="GtkLabel" id="album_label">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="margin_end">12</property>
-                            <property name="label" translatable="yes">Album:</property>
-                            <property name="xalign">1</property>
-                            <attributes>
-                              <attribute name="weight" value="semibold"/>
-                            </attributes>
-                          </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkEntry" id="album_entry">
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="hexpand">True</property>
-                          </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">False</property>
-                            <property name="position">1</property>
-                          </packing>
-                        </child>
-                      </object>
-                    </child>
-                    <style>
-                      <class name="background"/>
-                    </style>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkListBoxRow" id="genre_row">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="hexpand">True</property>
-                    <property name="selectable">False</property>
-                    <child>
-                      <object class="GtkBox">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="hexpand">True</property>
-                        <property name="border_width">12</property>
-                        <child>
-                          <object class="GtkLabel" id="genre_label">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="margin_end">12</property>
-                            <property name="label" translatable="yes">Genre:</property>
-                            <property name="xalign">1</property>
-                            <attributes>
-                              <attribute name="weight" value="semibold"/>
-                            </attributes>
-                          </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkEntry" id="genre_entry">
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="hexpand">True</property>
-                          </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">False</property>
-                            <property name="position">1</property>
-                          </packing>
-                        </child>
-                      </object>
-                    </child>
-                    <style>
-                      <class name="background"/>
-                    </style>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkListBoxRow" id="year_row">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="hexpand">True</property>
-                    <property name="selectable">False</property>
-                    <child>
-                      <object class="GtkBox">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="hexpand">True</property>
-                        <property name="border_width">12</property>
-                        <child>
-                          <object class="GtkLabel" id="year_label">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="margin_end">12</property>
-                            <property name="label" translatable="yes">Year:</property>
-                            <property name="xalign">1</property>
-                            <attributes>
-                              <attribute name="weight" value="semibold"/>
-                            </attributes>
-                          </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkBox" id="year_size_box">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="hexpand">True</property>
-                            <child>
-                              <object class="GtkSpinButton" id="year_entry">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="max_length">4</property>
-                                <property name="width_chars">10</property>
-                                <property name="max_width_chars">6</property>
-                                <property name="text">1900</property>
-                                <property name="caps_lock_warning">False</property>
-                                <property name="input_purpose">number</property>
-                                <property name="adjustment">year_adjustment</property>
-                                <property name="numeric">True</property>
-                                <property name="value">1900</property>
-                              </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <placeholder/>
-                            </child>
-                          </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">False</property>
-                            <property name="position">1</property>
-                          </packing>
-                        </child>
-                      </object>
-                    </child>
-                    <style>
-                      <class name="background"/>
-                    </style>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkListBoxRow" id="track_row">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="hexpand">True</property>
-                    <property name="selectable">False</property>
-                    <child>
-                      <object class="GtkBox">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="hexpand">True</property>
-                        <property name="border_width">12</property>
-                        <child>
-                          <object class="GtkLabel" id="track_label">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="margin_end">12</property>
-                            <property name="label" translatable="yes">Track:</property>
-                            <property name="xalign">1</property>
-                            <attributes>
-                              <attribute name="weight" value="semibold"/>
-                            </attributes>
-                          </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkBox" id="track_size_box">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="hexpand">True</property>
-                            <child>
-                              <object class="GtkSpinButton" id="track_entry">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="max_length">2</property>
-                                <property name="width_chars">3</property>
-                                <property name="max_width_chars">3</property>
-                                <property name="text">0</property>
-                                <property name="caps_lock_warning">False</property>
-                                <property name="input_purpose">digits</property>
-                                <property name="adjustment">track_adjustment</property>
-                                <property name="numeric">True</property>
-                              </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <placeholder/>
-                            </child>
-                          </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">False</property>
-                            <property name="position">1</property>
-                          </packing>
-                        </child>
-                      </object>
-                    </child>
-                    <style>
-                      <class name="background"/>
-                    </style>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkListBoxRow" id="comment_row">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="hexpand">True</property>
-                    <property name="selectable">False</property>
-                    <child>
-                      <object class="GtkBox">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="hexpand">True</property>
-                        <property name="border_width">12</property>
-                        <child>
-                          <object class="GtkLabel" id="comment_label">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="margin_end">12</property>
-                            <property name="label" translatable="yes">Comment:</property>
-                            <property name="xalign">1</property>
-                            <attributes>
-                              <attribute name="weight" value="semibold"/>
-                            </attributes>
-                          </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkEntry" id="comment_entry">
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="hexpand">True</property>
-                          </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">False</property>
-                            <property name="position">1</property>
-                          </packing>
-                        </child>
-                      </object>
-                    </child>
-                    <style>
-                      <class name="background"/>
-                    </style>
-                  </object>
-                </child>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <style>
-          <class name="view"/>
-        </style>
-      </object>
-    </child>
-    <child type="titlebar">
-      <object class="GtkHeaderBar" id="header">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="title" translatable="yes">Metadata Editor</property>
-        <property name="subtitle">file</property>
-        <child>
-          <object class="GtkButton" id="btn_cancel">
-            <property name="label">gtk-cancel</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">False</property>
-            <property name="use_stock">True</property>
-            <accelerator key="Escape" signal="activate"/>
-          </object>
-        </child>
-        <child>
-          <object class="GtkButton" id="btn_save">
-            <property name="label">gtk-save</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="use_stock">True</property>
-            <style>
-              <class name="suggested-action"/>
-            </style>
-          </object>
-          <packing>
-            <property name="pack_type">end</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-      </object>
-    </child>
-  </template>
-  <object class="GtkSizeGroup" id="btn_size_group">
-    <widgets>
-      <widget name="btn_cancel"/>
-      <widget name="btn_save"/>
-    </widgets>
-  </object>
-  <object class="GtkSizeGroup" id="labels_size_group">
-    <widgets>
-      <widget name="title_label"/>
-      <widget name="artist_label"/>
-      <widget name="album_label"/>
-      <widget name="genre_label"/>
-      <widget name="year_label"/>
-      <widget name="track_label"/>
-      <widget name="comment_label"/>
-    </widgets>
-  </object>
-  <object class="GtkSizeGroup" id="size_group">
-    <widgets>
-      <widget name="title_entry"/>
-      <widget name="artist_entry"/>
-      <widget name="album_entry"/>
-      <widget name="genre_entry"/>
-      <widget name="year_size_box"/>
-      <widget name="track_size_box"/>
-      <widget name="comment_entry"/>
-    </widgets>
   </object>
 </interface>
